@@ -18,12 +18,11 @@ import {
 const ProductReview = () => {
   const [ratings, setRatings] = useState({
     qualité: 0,
-    prix: 0,
+    confort: 0,
     design: 0,
     durabilité: 0,
-    satisfaction: 0
+    livraison: 0
   });
-  const [globalRating, setGlobalRating] = useState(0);
   const [priceQualityRatio, setPriceQualityRatio] = useState(0);
   const [recommendation, setRecommendation] = useState('');
   const [feedback, setFeedback] = useState('');
@@ -40,12 +39,11 @@ const ProductReview = () => {
   const handleReset = () => {
     setRatings({
       qualité: 0,
-      prix: 0,
+      confort: 0,
       design: 0,
       durabilité: 0,
-      satisfaction: 0
+      livraison: 0
     });
-    setGlobalRating(0);
     setPriceQualityRatio(0);
     setRecommendation('');
     setFeedback('');
@@ -59,10 +57,10 @@ const ProductReview = () => {
 
     const weights = {
       qualité: 0.25,    // 25%
-      prix: 0.25,      // 25%
+      confort: 0.25,      // 25%
       design: 0.20,     // 20%
       durabilité: 0.20, // 20%
-      satisfaction: 0.10 // 10%
+      livraison: 0.10 // 10%
     };
     
     const weightedSum = Object.entries(ratings).reduce((sum, [category, value]) => {
@@ -124,33 +122,6 @@ const ProductReview = () => {
           />
         </Box>
       ))}
-
-      <Box 
-        sx={{ 
-          marginTop: 4,
-          marginBottom: 2.5,
-          padding: 2,
-          backgroundColor: '#f8fafc',
-          borderRadius: 2
-        }}
-      >
-        <Typography 
-          component="legend" 
-          sx={{ 
-            fontWeight: 500,
-            marginBottom: 1
-          }}
-        >
-          Note Globale (0-10)
-        </Typography>
-        <Rating
-          name="global-rating"
-          value={globalRating}
-          max={10}
-          onChange={(event, newValue) => setGlobalRating(newValue)}
-          size="large"
-        />
-      </Box>
 
       <Box 
         sx={{ 
@@ -256,10 +227,7 @@ const ProductReview = () => {
         </DialogTitle>
         <DialogContent>
           <Typography gutterBottom>
-            Note moyenne pondérée : {averageRating.toFixed(1)} / 5
-          </Typography>
-          <Typography gutterBottom>
-            Note globale : {globalRating} / 10
+            Note globale : {averageRating.toFixed(1)} / 5
           </Typography>
           <Typography gutterBottom>
             Rapport Qualité/Prix : {priceQualityRatio} / 10
