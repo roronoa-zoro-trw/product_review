@@ -19,7 +19,7 @@ const ProductReview = () => {
   const [ratings, setRatings] = useState({
     qualité: 0,
     confort: 0,
-    design: 0,
+    fonctionnalité: 0,
     durabilité: 0,
     livraison: 0
   });
@@ -40,7 +40,7 @@ const ProductReview = () => {
     setRatings({
       qualité: 0,
       confort: 0,
-      design: 0,
+      fonctionnalité: 0,
       durabilité: 0,
       livraison: 0
     });
@@ -58,7 +58,7 @@ const ProductReview = () => {
     const weights = {
       qualité: 0.25,    // 25%
       confort: 0.25,      // 25%
-      design: 0.20,     // 20%
+      fonctionnalité: 0.20,     // 20%
       durabilité: 0.20, // 20%
       livraison: 0.10 // 10%
     };
